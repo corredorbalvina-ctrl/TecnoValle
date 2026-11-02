@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import TecnoViaje.RegistroDeViajes;
-import ServicioDeTransito.RegistroDeMovibilidad;
+import ServicioDeTránsito.RegistroDeMovibilidad;
 
 public class TecnoViajeapp {
 

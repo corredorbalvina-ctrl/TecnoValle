@@ -15,10 +15,12 @@ public class ProcesadorTransitoServicio {
         return registros.stream()
             .filter(r -> "entrada".equalsIgnoreCase(r.accion()))
             .collect(Collectors.groupingBy(r -> r.estacion(), Collectors.counting()));
+
+            
     }
 
     // b) Identificación de horas pico
-    public Map<Integer, Long> identificarHorasPico(List<RegistroViaje> registros) {
+    public Map<Integer, Long> identificarHorasPico(List<RegistroDeViajes> registros) {
         return registros.stream()
             .collect(Collectors.groupingBy(r -> r.timestamp().getHour(), Collectors.counting()));
     }
@@ -63,7 +65,7 @@ public class ProcesadorTransitoServicio {
     }
 
     // f) Detección de sobrecarga en rutas
-    public List<String> detectarRutasCriticas(List<RegistroViaje> registros, long umbralSobrecarga) {
+    public List<String> detectarRutasCriticas(List<RegistroDeViajes> registros, long umbralSobrecarga) {
         return registros.stream()
             .collect(Collectors.groupingBy(r -> r.ruta(), Collectors.counting()))
             .entrySet().stream()
